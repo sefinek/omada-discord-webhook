@@ -1,8 +1,8 @@
 exports.notFound = (req, res) => {
-	res.status(404).json({ success: false, status: 404, message: 'Not Found' });
+	res.sendStatus(404).end();
 };
 
 exports.internalError = (err, req, res, _next) => {
-	res.status(500).json({ success: false, status: 500, message: 'Internal Server Error' });
+	res.sendStatus(500).end();
 	console.error(err);
 };
