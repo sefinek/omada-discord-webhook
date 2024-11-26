@@ -9,7 +9,7 @@ module.exports = async (req, res) => {
 		return res.status(400).send('Invalid request body format');
 	}
 
-	const { description, text, Controller, timestamp, Site } = req.body;
+	const { timestamp, text, Controller, description, Site } = req.body;
 	const formattedTimestamp = new Date(parseInt(timestamp) || Date.now()).toISOString();
 
 	let details = '';
