@@ -21,7 +21,9 @@ module.exports = async (req, res) => {
 		}
 	}
 
-	const embed = createEmbed(Controller || '✨  Integration works correctly!', description, details || null, Site, formattedTimestamp);
-	const success = await webhook(res, embed);
+	const success = await webhook(
+		res,
+		createEmbed(Controller || '✨  Integration works correctly!', description, details || null, Site, formattedTimestamp)
+	);
 	if (success) res.sendStatus(200);
 };
