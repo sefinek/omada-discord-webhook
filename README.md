@@ -26,4 +26,5 @@ POST /discord/webhook
 http://192.168.0.145:8080/discord/webhook
 ```
 
-### MIT License
+## MIT License
+Copyright 2024 © by [Sefinek](https://sefinek.net). All Rights Reserved.
