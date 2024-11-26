@@ -2,7 +2,10 @@ const axios = require('./axios.js');
 
 module.exports = async (res, embed) => {
 	try {
-		await axios.post(process.env.DISCORD_WEBHOOK_URL, { embeds: [embed] });
+		await axios.post(process.env.DISCORD_WEBHOOK_URL, {
+			content: embed.mention ? `> \\⚠️ **GATEWAY ALERT! <@${process.env.DISCORD_ID}>**` : null,
+			embeds: [embed],
+		});
 
 		return true;
 	} catch (err) {

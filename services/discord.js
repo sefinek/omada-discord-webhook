@@ -3,7 +3,8 @@ const REGEX_MAC = /\b([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})\b/g;
 const REGEX_IP = /\b(\d{1,3}\.){3}\d{1,3}\b/g;
 
 const TYPES = [
-	{ regex: /attack|flood/i, emoji: '💥', color: 15482412 }, // Orange red
+	{ regex: /attack|flood/i, emoji: '💥', color: 16528415 }, // Orange red
+	{ regex: /error|failed/i, emoji: '❌', color: 15482412 }, // Orange red
 	{ regex: /dhcp/i, emoji: '🖥️', color: 1830818 }, // Medium spring green
 	{ regex: /logs/i, emoji: '📃', color: 15986424 }, // White smoke
 	{ regex: /logged (?:out|in)/i, emoji: '👤', color: 1693439 }, // Deep sky blue
@@ -28,6 +29,7 @@ module.exports = (title, description, details, site, timestamp) => {
 	}
 
 	return {
+		mention: (TYPES[0].regex.test(details) || TYPES[1].regex.test(details)) && process.env.DISCORD_ID,
 		title: `${matchedRule?.emoji ? `${matchedRule.emoji}  ` : ''}${title || 'Unknown Controller'}`,
 		description: updatedDetails,
 		color: matchedRule?.color || DEFAULT_COLOR,
