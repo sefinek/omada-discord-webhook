@@ -5,7 +5,7 @@ An easy script for integrating Discord Webhooks with the Omada Controller. It al
 *ENABLE_DATA_CENSORING=false*
 
 ## Worth Knowing
-✅ Middleware responsible for verifying the `shardSecret`.  
+✅ [Middleware](middlewares/other/verifySecret.js) responsible for verifying the `shardSecret`.  
 ✅ Ability to enable censorship of sensitive data.  
 ✅ Built in [Node.js](https://nodejs.org) using the [Express.js](https://www.npmjs.com/package/express) framework.  
 ✅ Ready [configuration](ecosystem.config.js) for [PM2](https://www.npmjs.com/package/pm2).
