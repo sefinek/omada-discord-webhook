@@ -26,4 +26,4 @@ POST /discord/webhook
 http://192.168.0.145:8080/discord/webhook
 ```
 
-## MIT License
+### MIT License
