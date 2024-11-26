@@ -35,7 +35,7 @@ module.exports = (title, description, details, site, timestamp) => {
 		color: matchedRule?.color || DEFAULT_COLOR,
 		timestamp,
 		footer: {
-			text: `${description || 'No description provided'} • ${site || 'Unknown Site'}`,
+			text: `${description || 'No description provided'}${site ? ` • ${site}` : ''}`,
 		},
 	};
 };

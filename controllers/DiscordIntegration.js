@@ -1,4 +1,4 @@
-const createEmbed = require('../services/discord.js');
+const createEmbed = require('../services/embed.js');
 const webhook = require('../services/webhook.js');
 
 module.exports = async (req, res) => {
