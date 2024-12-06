@@ -6,9 +6,9 @@ module.exports = {
 		// Logging configuration
 		log_date_format: 'HH:mm:ss.SSS DD.MM.YYYY',
 		merge_logs: true,
-		log_file: '/home/sefinek/logs/www/omada-w/combined.log',
-		out_file: '/home/sefinek/logs/www/omada-w/out.log',
-		error_file: '/home/sefinek/logs/www/omada-w/error.log',
+		log_file: '/home/sefinek/logs/other/omada-w/combined.log',
+		out_file: '/home/sefinek/logs/other/omada-w/out.log',
+		error_file: '/home/sefinek/logs/other/omada-w/error.log',
 
 		// Application restart policy settings
 		wait_ready: true,
