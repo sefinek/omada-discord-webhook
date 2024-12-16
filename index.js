@@ -1,9 +1,10 @@
 require('dotenv').config();
 
 const express = require('express');
-const helmet = require('helmet');
+const { version } = require('./package.json');
 
 // Middleware imports
+const helmet = require('helmet');
 const timeout = require('./middlewares/timeout.js');
 const logger = require('./middlewares/morgan.js');
 const limiter = require('./middlewares/ratelimit.js');
@@ -29,4 +30,7 @@ app.use(notFound);
 app.use(internalError);
 
 const port = process.env.PORT;
-app.listen(port, () => process.send ? process.send('ready') : console.log(`Waiting for events at http://127.0.0.1:${port}/discord/webhook (${process.env.NODE_ENV})`));
+app.listen(port, () => {
+	console.log(`[${process.env.NODE_ENV.toUpperCase()}] Waiting for events at http://127.0.0.1:${port}/discord/webhook - v${version}`);
+	if (process.env.NODE_ENV === 'production') process.send('ready');
+});
