@@ -1,6 +1,7 @@
 require('dotenv').config();
 
 const express = require('express');
+const { networkInterfaces } = require('node:os');
 const { version } = require('./package.json');
 
 // Middleware imports
@@ -9,6 +10,15 @@ const timeout = require('./middlewares/timeout.js');
 const logger = require('./middlewares/morgan.js');
 const limiter = require('./middlewares/ratelimit.js');
 const { notFound, internalError } = require('./middlewares/errors.js');
+
+// Network interfaces
+const port = process.env.PORT;
+const getLocalNetworkLinks = () => {
+	return Object.values(networkInterfaces())
+		.flat()
+		.filter(net => net.family === 'IPv4' && !net.internal)
+		.map(net => `http://${net.address}:${port}`);
+};
 
 // Create an Express app
 const app = express();
@@ -29,8 +39,13 @@ app.use(MainRouter);
 app.use(notFound);
 app.use(internalError);
 
-const port = process.env.PORT;
+// Listen
 app.listen(port, () => {
-	console.log(`[${process.env.NODE_ENV.toUpperCase()}] Waiting for events at http://127.0.0.1:${port}/discord/webhook - v${version}`);
+	const localLinks = getLocalNetworkLinks();
+	console.log(`[${process.env.NODE_ENV.toUpperCase()}] Waiting for events`);
+	console.log(`- Local: http://127.0.0.1:${port}/discord/webhook`);
+	localLinks.forEach(link => console.log(`- Network: ${link}/discord/webhook`));
+	console.log(`- Version: v${version}`);
+
 	if (process.env.NODE_ENV === 'production') process.send('ready');
 });
