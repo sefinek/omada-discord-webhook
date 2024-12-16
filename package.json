@@ -1,6 +1,6 @@
 {
   "name": "omada-webhook-to-discord",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An easy script for integrating Discord Webhooks with the Omada Controller. It allows sending logs from the controller to a selected Discord channel.",
   "main": "index.js",
   "scripts": {
