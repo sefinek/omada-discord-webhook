@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.17.0",
-    "discord-api-types": "^0.37.111",
+    "discord-api-types": "^0.37.114",
     "globals": "^15.14.0"
   }
 }
