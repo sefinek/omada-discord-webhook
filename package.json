@@ -27,7 +27,7 @@
     "morgan": "^1.10.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.17.0",
+    "@eslint/js": "^9.19.0",
     "discord-api-types": "^0.37.114",
     "globals": "^15.14.0"
   }
